@@ -6,6 +6,7 @@ import FeaturesSection from "@/components/HomepageSections/FeaturesSection.vue";
 import BlogSection from "@/components/HomepageSections/BlogSection.vue";
 import { useApiError } from "@/utils/hooks";
 import {useNuxtApp} from "nuxt3/app";
+import TestimonialsSection from "../components/HomepageSections/TestimonialsSection";
 
 const { $butterCMS } = useNuxtApp()
 const { setError } = useApiError();
@@ -23,8 +24,6 @@ const {data} = await useAsyncData('home-data', async () => {
     blogPosts
   }
 }, {lazy: false})
-
-console.log(data)
 
 </script>
 
@@ -46,11 +45,13 @@ console.log(data)
         :key="index"
         :fields="item.fields"
       />
-<!--      <testimonials-section-->
-<!--        v-if="item.type === 'testimonials'"-->
-<!--        :key="index"-->
-<!--        :fields="item.fields"-->
-<!--      />-->
+      <client-only>
+        <testimonials-section
+          v-if="item.type === 'testimonials'"
+          :key="index"
+          :fields="item.fields"
+        />
+      </client-only>
     </template>
     <blog-section :blog-posts="data.blogPosts" />
   </div>
