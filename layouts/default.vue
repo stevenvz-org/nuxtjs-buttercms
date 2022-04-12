@@ -4,6 +4,7 @@ import { useRoute } from "vue-router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import Spinner from "../components/Spinner";
 
 const activeLink = ref("");
 const route = useRoute();
@@ -57,6 +58,9 @@ const scrollToSection = async () => {
 
 <template>
   <div>
+    <spinner
+      v-show="loading"
+    />
     <Header :menu-items="items" :active-link="activeLink"/>
     <slot/>
     <ScrollToTop/>
