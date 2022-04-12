@@ -14,7 +14,7 @@
       <h5 class="widget-title">Categories</h5>
       <ul class="categories-list">
         <li v-for="category in categories" :key="category.slug">
-          <nuxt-link :to="`/blog/category/${category.slug}`">
+          <nuxt-link :to="`/blog/category/${category.slug}/`">
             {{ category.name }}
           </nuxt-link>
         </li>
