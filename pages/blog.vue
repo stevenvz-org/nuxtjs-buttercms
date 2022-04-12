@@ -16,7 +16,7 @@ import { basicBlogLinks } from "@/utils";
 import { useApiError, useBlogPosts } from "@/utils/hooks";
 import { useRoute } from "vue-router";
 import BlogHeader from "@/components/BlogSections/BlogHeader.vue";
-import { ref, watch } from "vue";
+import { ref, watch, provide } from "vue";
 import { getBlogCategory, getBlogTag } from "@/utils/service";
 import Seo from "@/components/Seo.vue";
 import BlogContentContainer from "../components/BlogSections/BlogContentContainer";
@@ -28,33 +28,14 @@ const heading = ref("");
 const headerLinks = ref([]);
 const seoTitle = ref("");
 
-useMeta({
-  title: seoTitle.value
-})
+provide('heading', heading)
+provide('headerText', headerText)
+provide('headerLinks', headerLinks)
+provide('seoTitle', seoTitle)
 
 const loadData = () => {
   headerLinks.value = basicBlogLinks;
-  if ("category" in route.params) {
-    const slug = route.params.category;
-    heading.value = "Blog Posts by Category";
-    seoTitle.value = "category: " + slug;
-    getBlogCategory(slug)
-      .then((category) => {
-        headerText.value = "Category: " + category.name;
-      })
-      .catch((e) => setError(e));
-  } else if ("tag" in route.params) {
-    const slug = route.params.tag;
-    heading.value = "Blog Posts by Tag";
-    getBlogTag(slug)
-      .then((tag) => (headerText.value = "Tag: " + tag.name))
-      .catch((e) => setError(e));
-    seoTitle.value = "tag: " + slug;
-  } else if ("q" in route.query) {
-    heading.value = "Search Results";
-    headerText.value = "Search: " + route.query["q"];
-    seoTitle.value = `search results for ${filter.value}`;
-  } else {
+  if(Object.keys(route.params).length === 0){
     headerText.value = heading.value = "All blog posts";
     headerLinks.value = [basicBlogLinks[0]];
     seoTitle.value = `All Posts`;

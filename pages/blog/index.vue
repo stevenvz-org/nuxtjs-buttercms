@@ -12,6 +12,7 @@ const {data} = await useAsyncData('tag', async () => {
     posts: response.data.data
   }
 })
+
 </script>
 
 <style scoped>

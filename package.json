@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "buttercms": "^1.2.8",
-    "tiny-slider": "^2.9.4"
+    "tiny-slider": "^2.9.4",
+    "vue": "^3.2.31"
   }
 }
