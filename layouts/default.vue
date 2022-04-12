@@ -56,8 +56,10 @@ const scrollToSection = async () => {
 </script>
 
 <template>
-  <Header :menu-items="items" :active-link="activeLink"/>
-  <slot/>
-  <ScrollToTop/>
-  <Footer :menu-items="items" :active-link="activeLink"/>
+  <div>
+    <Header :menu-items="items" :active-link="activeLink"/>
+    <slot/>
+    <ScrollToTop/>
+    <Footer :menu-items="items" :active-link="activeLink"/>
+  </div>
 </template>

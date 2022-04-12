@@ -6,7 +6,8 @@
     />
     <blog-header :heading="heading" :links="headerLinks" :text="headerText" />
     <blog-content-container>
-      <blog-posts-list :blog-posts="posts" />
+      <NuxtPage />
+<!--      <blog-posts-list :blog-posts="posts" />-->
     </blog-content-container>
   </div>
 </template>

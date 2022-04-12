@@ -1,9 +1,11 @@
 <template>
-  <Teleport to="head">
-    <title>{{ title }}</title>
-    <meta name="description" :content="description" />
-    <meta v-if="image" name="image" :content="image" />
-  </Teleport>
+<Html>
+  <Head>
+    <Title>{{title}}</Title>
+    <Meta name="description" :content="description" />
+    <Meta v-if="image" name="image" :content="image" />
+  </Head>
+</Html>
 </template>
 
 <script setup>
