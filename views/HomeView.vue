@@ -4,31 +4,41 @@ import HeroSection from "@/components/HomepageSections/HeroSection.vue";
 import TwoColumnWithImageSection from "@/components/HomepageSections/TwoColumnWithImageSection.vue";
 import FeaturesSection from "@/components/HomepageSections/FeaturesSection.vue";
 import BlogSection from "@/components/HomepageSections/BlogSection.vue";
-import { useApiError } from "@/utils/hooks";
 import {useNuxtApp} from "nuxt3/app";
 import TestimonialsSection from "../components/HomepageSections/TestimonialsSection";
+import {useApiError} from "../composables/hooks";
+import Spinner from "../components/Spinner";
 
 const { $butterCMS } = useNuxtApp()
 const { setError } = useApiError();
 
+const props = defineProps(['slug'])
+
 const {data} = await useAsyncData('home-data', async () => {
-  const page = await $butterCMS?.page.retrieve(
-    "landing-page",
-    "landing-page-with-components"
-  );
-  const pageData = page?.data.data;
-  const posts = await $butterCMS?.post.list({ page: 1, page_size: 2 });
-  const blogPosts = posts?.data.data;
-  return {
-    pageData,
-    blogPosts
+  const pageSlug = props.slug ?? "landing-page-with-components";
+  try{
+    const page = await $butterCMS?.page.retrieve(
+      "landing-page",
+      pageSlug
+    );
+    const pageData = page?.data.data;
+    const posts = await $butterCMS?.post.list({ page: 1, page_size: 2 });
+    const blogPosts = posts?.data.data;
+    return {
+      pageData,
+      blogPosts
+    }
+  } catch (e) {
+    setError(e)
+    return null
   }
+
 }, {lazy: false})
 
 </script>
 
 <template>
-  <div v-if="data.pageData">
+  <div v-if="data && data.pageData">
     <template v-for="(item, index) in data.pageData.fields.body">
       <hero-section
         v-if="item.type === 'hero'"
@@ -55,4 +65,5 @@ const {data} = await useAsyncData('home-data', async () => {
     </template>
     <blog-section :blog-posts="data.blogPosts" />
   </div>
+  <spinner v-else/>
 </template>

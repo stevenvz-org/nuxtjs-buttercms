@@ -5,10 +5,13 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import Spinner from "../components/Spinner";
+import {useApiError} from "../composables/hooks";
+import NoApiKeyView from "../views/NoApiKeyView";
 
 const activeLink = ref("");
 const route = useRoute();
 const { items, loading } = useMenuItems();
+const {error} = useApiError()
 
 onMounted(() => {
   window.addEventListener("load", scrollToSection);
@@ -59,11 +62,14 @@ const scrollToSection = async () => {
 <template>
   <div>
     <spinner
-      v-show="loading"
+      v-if="loading"
     />
-    <Header :menu-items="items" :active-link="activeLink"/>
-    <slot/>
-    <ScrollToTop/>
-    <Footer :menu-items="items" :active-link="activeLink"/>
+    <no-api-key-view v-else-if="error" />
+    <div v-else>
+      <Header :menu-items="items" :active-link="activeLink"/>
+      <slot/>
+      <ScrollToTop/>
+      <Footer :menu-items="items" :active-link="activeLink"/>
+    </div>
   </div>
 </template>
