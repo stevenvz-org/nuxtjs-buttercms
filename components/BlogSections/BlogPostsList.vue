@@ -46,7 +46,7 @@
           <p>{{ post.summary }}</p>
         </div>
         <div class="blog-roll-card-footer text-center">
-          <router-link :to="`/blog/${post.slug}`" class="main-btn btn-hover"
+          <router-link :to="`/blog/${post.slug}/`" class="main-btn btn-hover"
             >Read More</router-link
           >
         </div>

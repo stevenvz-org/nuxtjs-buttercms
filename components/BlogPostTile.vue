@@ -16,7 +16,7 @@
         <p>{{ summary }}</p>
       </div>
       <div class="blog-footer">
-        <router-link :to="`/blog/${slug}`" class="main-btn btn-hover"
+        <router-link :to="`/blog/${slug}/`" class="main-btn btn-hover"
           >Read More</router-link
         >
       </div>

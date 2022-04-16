@@ -10,7 +10,7 @@
               to launch a new company blog.
             </p>
             <p>
-              <nuxt-link class="main-btn btn-hover mt-5" to="/blog">
+              <nuxt-link class="main-btn btn-hover mt-5" to="/blog/">
                 View All Blog Posts
               </nuxt-link>
             </p>
