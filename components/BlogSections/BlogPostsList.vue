@@ -10,7 +10,7 @@
       <div class="blog-roll-card">
         <div class="blog-roll-card-meta">
           <h2 class="blog-roll-card-header">
-            <router-link :to="`/blog/${post.slug}`">
+            <router-link :to="`/blog/${post.slug}/`">
               {{ post.title }}
             </router-link>
           </h2>
@@ -31,7 +31,7 @@
               <router-link
                 v-for="tag in post.tags"
                 :key="tag.slug"
-                :to="`/blog/tag/${tag.slug}`"
+                :to="`/blog/tag/${tag.slug}/`"
                 class="tag"
               >
                 <i class="lni lni-tag"></i> {{ tag.name }}
