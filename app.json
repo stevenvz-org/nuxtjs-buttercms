@@ -13,6 +13,9 @@
     "NUXT_ENV_APP_BUTTER_CMS_API_KEY": {
       "description": "The API token of your ButterCMS account",
       "value": ""
+    },
+    "HOST": {
+      "value": "0.0.0.0"
     }
   }
 }
