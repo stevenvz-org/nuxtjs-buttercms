@@ -8,6 +8,7 @@ import {useAsyncData, useNuxtApp} from "nuxt3/app";
 import TestimonialsSection from "../components/HomepageSections/TestimonialsSection";
 import {useApiError} from "../composables/hooks";
 import Spinner from "../components/Spinner";
+import Seo from "../components/Seo";
 
 const { $butterCMS } = useNuxtApp()
 const { setError } = useApiError();
@@ -44,6 +45,7 @@ onMounted(() => {
 
 <template>
   <div>
+    <seo v-bind="data.pageData.fields.seo" />
     <template v-for="(item, index) in data.pageData.fields.body">
       <hero-section
         v-if="item.type === 'hero'"
