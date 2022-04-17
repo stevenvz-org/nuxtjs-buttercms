@@ -1,0 +1,18 @@
+{
+  "name": "ButterCMS NuxtJS Starter Project ",
+  "description": "Drop-in proof-of-concept NuxtJs app, fully integrated with your ButterCMS account.",
+  "repository": "https://github.com/ButterCMS/nuxtjs-starter-buttercms",
+  "logo": "https://cdn.buttercms.com/R3fbtvoRT2CqEQSmk8hb",
+  "keywords": ["Vue.js", "Nuxt.js", "buttercms", "cms", "blog"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "NUXT_ENV_APP_BUTTER_CMS_API_KEY": {
+      "description": "The API token of your ButterCMS account",
+      "value": ""
+    }
+  }
+}
