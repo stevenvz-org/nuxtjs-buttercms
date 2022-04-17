@@ -3,7 +3,7 @@ import { onMounted, ref } from "vue";
 const props = defineProps(["menuItems", "activeLink"]);
 
 const isSticky = ref(true);
-const isTogglerActive = ref(true);
+const isTogglerActive = ref(false);
 
 const togglToggler = () => {
   isTogglerActive.value = !isTogglerActive.value;
