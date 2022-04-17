@@ -1,16 +1,17 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import {inject, nextTick, onMounted, ref, watch} from "vue";
 import HeroSection from "@/components/HomepageSections/HeroSection.vue";
 import TwoColumnWithImageSection from "@/components/HomepageSections/TwoColumnWithImageSection.vue";
 import FeaturesSection from "@/components/HomepageSections/FeaturesSection.vue";
 import BlogSection from "@/components/HomepageSections/BlogSection.vue";
-import {useNuxtApp} from "nuxt3/app";
+import {useAsyncData, useNuxtApp} from "nuxt3/app";
 import TestimonialsSection from "../components/HomepageSections/TestimonialsSection";
 import {useApiError} from "../composables/hooks";
 import Spinner from "../components/Spinner";
 
 const { $butterCMS } = useNuxtApp()
 const { setError } = useApiError();
+const { handleMounted } = inject("layout")
 
 const props = defineProps(['slug'])
 
@@ -32,13 +33,17 @@ const {data} = await useAsyncData('home-data', async () => {
     setError(e)
     return null
   }
-
 }, {lazy: false})
+
+
+onMounted(() => {
+  handleMounted()
+})
 
 </script>
 
 <template>
-  <div v-if="data && data.pageData">
+  <div>
     <template v-for="(item, index) in data.pageData.fields.body">
       <hero-section
         v-if="item.type === 'hero'"
@@ -65,5 +70,4 @@ const {data} = await useAsyncData('home-data', async () => {
     </template>
     <blog-section :blog-posts="data.blogPosts" />
   </div>
-  <spinner v-else/>
 </template>

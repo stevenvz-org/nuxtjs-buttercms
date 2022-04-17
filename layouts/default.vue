@@ -1,5 +1,5 @@
 <script setup>
-import { nextTick, onMounted, onUnmounted, ref } from "vue";
+import {nextTick, onMounted, onUnmounted, provide, ref} from "vue";
 import { useRoute } from "vue-router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -56,6 +56,14 @@ const scrollToSection = async () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
 };
+
+function handleMounted() {
+  scrollToSection()
+}
+
+provide("layout", {
+  handleMounted
+})
 
 </script>
 
