@@ -43,4 +43,4 @@ Deploy your Nuxt.js app using Vercel, the creators of Next.js, or with Heroku. W
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ButterCMS/nuxtjs-starter-buttercms&env%NUXT_ENV_APP_BUTTER_CMS_API_KEY%5D=check%20https://buttercms.com/settings)
 
 ## 5. Previewing Draft Changes
-By default, your starter project is set up to allow previewing of draft changes saved in your ButterCMS.com account. To disable this functionality, set the following value in your .env file: NUXT_ENV_APP_BUTTER_CMS_API_KEY=false
+By default, your starter project is set up to allow previewing of draft changes saved in your ButterCMS.com account. To disable this functionality, set the following value in your .env file: NUXT_ENV_APP_BUTTER_CMS_PREVIEW=false
