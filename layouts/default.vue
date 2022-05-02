@@ -5,13 +5,19 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import Spinner from "../components/Spinner";
-import {useApiError} from "../composables/hooks";
+import {useApiError, useMenuItems} from "../composables/hooks";
 import NoApiKeyView from "../views/NoApiKeyView";
+import ApiTokenNotFound from "../components/ApiTokenNotFound";
+import {useRuntimeConfig} from "nuxt3/app";
 
 const activeLink = ref("");
 const route = useRoute();
 const { items, loading } = useMenuItems();
 const {error} = useApiError()
+const config = useRuntimeConfig();
+
+const apiKeyExists = !!config.API_KEY
+console.log(apiKeyExists)
 
 onMounted(() => {
   window.addEventListener("load", scrollToSection);
@@ -69,10 +75,9 @@ provide("layout", {
 
 <template>
   <div>
-    <spinner
-      v-if="loading"
-    />
-    <no-api-key-view v-else-if="error" />
+    <no-api-key-view v-if="!apiKeyExists" />
+    <spinner v-else-if="loading"/>
+    <api-token-not-found v-else-if="error" />
     <div v-else>
       <Header :menu-items="items" :active-link="activeLink"/>
       <slot/>
