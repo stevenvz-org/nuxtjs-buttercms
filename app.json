@@ -14,8 +14,6 @@
       "description": "The API token of your ButterCMS account",
       "value": ""
     },
-    "HOST": {
-      "value": "0.0.0.0"
-    }
+    "HOST": "0.0.0.0"
   }
 }
