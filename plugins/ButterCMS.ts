@@ -7,7 +7,7 @@ export default defineNuxtPlugin(nuxtApp => {
   const config = useRuntimeConfig();
   try {
     const apiKey = String(config.API_KEY);
-    const preview = config.PREVIEW !== "false";
+    const preview = Boolean(config.PREVIEW);
     butterCMS = Butter(apiKey, preview);
   } catch (error) {
     console.error(error);
