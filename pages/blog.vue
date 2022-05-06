@@ -13,12 +13,12 @@
 
 <script setup>
 import {basicBlogLinks} from "@/utils";
-import {useApiError} from "@/utils/hooks";
 import {useRoute} from "vue-router";
 import BlogHeader from "@/components/BlogSections/BlogHeader.vue";
 import {provide, ref} from "vue";
 import Seo from "@/components/Seo.vue";
 import BlogContentContainer from "../components/BlogSections/BlogContentContainer";
+import {useApiError} from "../composables/hooks";
 
 const { setError } = useApiError();
 const route = useRoute();

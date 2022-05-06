@@ -14,7 +14,7 @@
 
 <script setup>
 import { basicBlogLinks } from "@/utils";
-import { useApiError, useBlogPosts } from "@/utils/hooks";
+import { useApiError, useBlogPosts } from "@/composables/hooks";
 import { useRoute } from "vue-router";
 import BlogHeader from "../components/BlogSections/BlogHeader.vue";
 import BlogContentContainer from "../components/BlogSections/BlogContentContainer.vue";
