@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   publicRuntimeConfig: {
     API_KEY: process.env.NUXT_ENV_APP_BUTTER_CMS_API_KEY,
     PREVIEW: process.env.NUXT_ENV_APP_BUTTER_CMS_PREVIEW,
-    HOST: '0.0.0.0'
   },
   css: [
     '~/assets/css/bootstrap.min.css',

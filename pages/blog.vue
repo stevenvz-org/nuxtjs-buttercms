@@ -18,7 +18,7 @@ import BlogHeader from "@/components/BlogSections/BlogHeader.vue";
 import {provide, ref} from "vue";
 import Seo from "@/components/Seo.vue";
 import BlogContentContainer from "../components/BlogSections/BlogContentContainer";
-import {useApiError} from "../composables/hooks";
+import {useApiError} from "@/composables/hooks";
 
 const { setError } = useApiError();
 const route = useRoute();

@@ -8,7 +8,6 @@ import Spinner from "../components/Spinner";
 import {useApiError, useMenuItems} from "../composables/hooks";
 import NoApiKeyView from "../views/NoApiKeyView";
 import ApiTokenNotFound from "../components/ApiTokenNotFound";
-import {useRuntimeConfig} from "nuxt3/app";
 
 const activeLink = ref("");
 const route = useRoute();
