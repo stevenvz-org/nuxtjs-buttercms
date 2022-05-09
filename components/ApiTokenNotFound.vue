@@ -6,7 +6,7 @@
           <div class="hero-content">
             <h1>404 Page not found</h1>
             <p>
-              Check that your API token is correct or that the requested URL is
+              Check that your API token is correct and that the requested URL is
               valid.
             </p>
           </div>
