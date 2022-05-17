@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt3'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   publicRuntimeConfig: {
-    API_KEY: process.env.NUXT_ENV_APP_BUTTER_CMS_API_KEY,
+    API_KEY: process.env.NUXT_ENV_BUTTER_API_TOKEN,
     PREVIEW: process.env.NUXT_ENV_APP_BUTTER_CMS_PREVIEW ?? "true",
   },
   css: [
