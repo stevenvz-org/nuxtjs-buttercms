@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt3'
 export default defineNuxtConfig({
   publicRuntimeConfig: {
     API_KEY: process.env.NUXT_ENV_BUTTER_API_TOKEN,
-    PREVIEW: process.env.NUXT_ENV_APP_BUTTER_CMS_PREVIEW,
+    PREVIEW: process.env.NUXT_ENV_APP_BUTTER_CMS_PREVIEW ?? "true",
   },
   css: [
     '~/assets/css/bootstrap.min.css',
