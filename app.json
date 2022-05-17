@@ -10,7 +10,7 @@
     }
   ],
   "env": {
-    "NUXT_ENV_APP_BUTTER_CMS_API_KEY": {
+    "NUXT_ENV_BUTTER_API_TOKEN": {
       "description": "The API token of your ButterCMS account",
       "value": ""
     },
