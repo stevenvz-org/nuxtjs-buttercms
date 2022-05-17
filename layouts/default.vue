@@ -16,7 +16,6 @@ const {error} = useApiError()
 const config = useRuntimeConfig();
 
 const apiKeyExists = !!config.API_KEY
-console.log(apiKeyExists)
 
 onMounted(() => {
   window.addEventListener("load", scrollToSection);
