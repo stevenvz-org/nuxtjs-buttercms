@@ -22,10 +22,11 @@ const {data} = await useAsyncData('article', async () => {
   const slug = route.params.post;
   const response = await $butterCMS.post.retrieve(slug);
   const article = response.data.data;
-  heading.value = article.title
-  headerText.value = article.title
   return { article }
 })
+
+
+heading.value = headerText.value = data.value.article.title
 </script>
 
 <style scoped>

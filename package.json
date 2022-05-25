@@ -7,7 +7,7 @@
     "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
-    "nuxt3": "latest"
+    "nuxt": "npm:nuxt3@latest"
   },
   "dependencies": {
     "buttercms": "^1.2.8",
