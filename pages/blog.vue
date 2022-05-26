@@ -15,7 +15,7 @@
 import {basicBlogLinks} from "@/utils";
 import {useRoute} from "vue-router";
 import BlogHeader from "@/components/BlogSections/BlogHeader.vue";
-import {provide, ref, watch} from "vue";
+import {computed, provide, ref, watch} from "vue";
 import Seo from "@/components/Seo.vue";
 import BlogContentContainer from "../components/BlogSections/BlogContentContainer";
 import {useApiError} from "@/composables/hooks";
@@ -32,9 +32,12 @@ provide('headerText', headerText)
 provide('headerLinks', headerLinks)
 provide('seoTitle', seoTitle)
 
+const isMainBlogPage = computed(() =>
+    Object.keys(route.params).length === 0 &&
+    Object.keys(route.query).length === 0)
 
 const resolveBlogLinks = () => {
-  if(Object.keys(route.params).length === 0){
+  if(isMainBlogPage.value){
     headerLinks.value = [basicBlogLinks[0]];
     seoTitle.value = `All Posts`;
   } else headerLinks.value = basicBlogLinks
