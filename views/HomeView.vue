@@ -1,13 +1,11 @@
 <script setup>
-import {inject, nextTick, onMounted, ref, watch} from "vue";
+import {inject, onMounted} from "vue";
 import HeroSection from "@/components/HomepageSections/HeroSection.vue";
 import TwoColumnWithImageSection from "@/components/HomepageSections/TwoColumnWithImageSection.vue";
 import FeaturesSection from "@/components/HomepageSections/FeaturesSection.vue";
 import BlogSection from "@/components/HomepageSections/BlogSection.vue";
-import {useAsyncData, useNuxtApp} from "nuxt3/app";
 import TestimonialsSection from "../components/HomepageSections/TestimonialsSection";
 import {useApiError} from "../composables/hooks";
-import Spinner from "../components/Spinner";
 import Seo from "../components/Seo";
 
 const { $butterCMS } = useNuxtApp()
