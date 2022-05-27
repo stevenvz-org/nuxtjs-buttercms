@@ -1,10 +1,6 @@
-<template>
-  <blog-posts-list :blog-posts="data.posts" />
-</template>
-
 <script setup>
 import BlogPostsList from "../../../components/BlogSections/BlogPostsList";
-import {inject} from "vue";
+import {inject, nextTick, onMounted, watch} from "vue";
 import {getBlogCategory} from "../../../utils/service";
 import {useApiError} from "../../../composables/hooks";
 
@@ -21,14 +17,14 @@ const headerText = inject('headerText')
 
 heading.value = "Blog Posts by Category"
 
-const {data} = await useAsyncData('tag', async () => {
+const {data, refresh} = await useAsyncData('tag', async () => {
   const filter = { category_slug: slug }
   const response = await $butterCMS?.post.list(filter)
   return {
     posts: response.data.data
   }
 })
-
+onMounted(refresh)
 getBlogCategory(slug)
   .then((category) => {
     headerText.value = "Category: " + category.name;
@@ -37,6 +33,6 @@ getBlogCategory(slug)
   .catch((e) => setError(e));
 </script>
 
-<style scoped>
-
-</style>
+<template>
+  <blog-posts-list :blog-posts="data.posts" />
+</template>

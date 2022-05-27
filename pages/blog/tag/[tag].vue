@@ -5,7 +5,7 @@
 <script setup>
 
 import BlogPostsList from "../../../components/BlogSections/BlogPostsList";
-import {inject} from "vue";
+import {inject, onMounted} from "vue";
 import {useApiError} from "../../../composables/hooks";
 import {getBlogTag} from "../../../utils/service";
 
@@ -21,13 +21,14 @@ const headerText = inject('headerText')
 
 heading.value = "Blog Posts by Tag";
 
-const {data} = await useAsyncData('tag', async () => {
+const {data, refresh} = await useAsyncData('tag', async () => {
   const filter = { tag_slug: slug }
   const response = await $butterCMS?.post.list(filter)
   return {
     posts: response.data.data
   }
 })
+onMounted(refresh)
 
 try{
   const tag = await getBlogTag(slug)
