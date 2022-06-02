@@ -23,7 +23,7 @@
 
 <script setup>
 import { onMounted } from "vue";
-import Testimonial from "../Testimonial";
+import Testimonial from "@/components/Testimonial";
 import {useNuxtApp} from "#app";
 
 defineProps(["fields"]);

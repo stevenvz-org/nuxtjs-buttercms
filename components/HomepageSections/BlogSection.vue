@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import BlogPostTile from "../BlogPostTile.vue";
+import BlogPostTile from "@/components/BlogPostTile.vue";
 
 defineProps(["blogPosts"]);
 </script>
