@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import BlogPostsList from "../../components/BlogSections/BlogPostsList";
+import BlogPostsList from "@/components/BlogSections/BlogPostsList";
 import {onMounted} from "vue";
 
 const heading = inject('heading')

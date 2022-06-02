@@ -4,10 +4,10 @@
 
 <script setup>
 
-import BlogPostsList from "../../../components/BlogSections/BlogPostsList";
+import BlogPostsList from "@/components/BlogSections/BlogPostsList";
 import {inject, onMounted} from "vue";
-import {useApiError} from "../../../composables/hooks";
-import {getBlogTag} from "../../../utils/service";
+import {useApiError} from "@/composables/hooks";
+import {getBlogTag} from "@/utils/service";
 
 const {$butterCMS} = useNuxtApp()
 const route = useRoute()
