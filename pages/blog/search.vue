@@ -3,8 +3,8 @@
 </template>
 
 <script setup>
-import {butterCMS} from "../../plugins/ButterCMS";
-import BlogPostsList from "../../components/BlogSections/BlogPostsList";
+import {butterCMS} from "@/plugins/ButterCMS";
+import BlogPostsList from "@/components/BlogSections/BlogPostsList";
 import {inject} from "vue";
 
 const route = useRoute()

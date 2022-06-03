@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import SingleArticle from "../../components/BlogSections/SingleArticle";
+import SingleArticle from "@/components/BlogSections/SingleArticle";
 import {inject, onMounted} from 'vue'
 
 const heading = inject('heading')

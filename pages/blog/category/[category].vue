@@ -1,8 +1,8 @@
 <script setup>
-import BlogPostsList from "../../../components/BlogSections/BlogPostsList";
+import BlogPostsList from "@/components/BlogSections/BlogPostsList";
 import {inject, nextTick, onMounted, watch} from "vue";
-import {getBlogCategory} from "../../../utils/service";
-import {useApiError} from "../../../composables/hooks";
+import {getBlogCategory} from "@/utils/service";
+import {useApiError} from "@/composables/hooks";
 
 const props = defineProps(['params'])
 const route = useRoute()
