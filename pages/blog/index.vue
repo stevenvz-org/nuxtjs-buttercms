@@ -8,7 +8,7 @@ import {onMounted} from "vue";
 
 const heading = inject('heading')
 const headerText = inject('headerText')
-heading.value = headerText.value = "All blog posts";
+heading.value = headerText.value = "All Blog Posts";
 
 const {$butterCMS} = useNuxtApp()
 const {data, refresh} = await useAsyncData('tag', async () => {
